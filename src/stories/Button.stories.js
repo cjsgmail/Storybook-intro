@@ -6,7 +6,7 @@ export default {
   argTypes: {
     text: { control: "text" },
     color: { control: "color" },
-    size: { control: { type: "radio", options: ["big", "small"] } },
+    size: { control: { type: "radio", options: ["big", "small", "smaller"] } },
   },
 };
 
