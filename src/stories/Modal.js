@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 import { StorybookButton } from "./Button.stories";
 
@@ -39,32 +40,48 @@ const BtnGroup = styled.div`
   display: flex;
 `;
 
-export default function Modal({ size, text, setOnModal }) {
+export default function Modal({ size, text }) {
+  const [onModal, setOnModal] = useState(false);
+
+  const handleModal = () => {
+    setOnModal(true);
+  };
+
   return (
-    <ModalBackDrop>
-      <ModalView size={size}>
-        <CheckMessage>{text}</CheckMessage>
-        <BtnGroup>
-          <StorybookButton
-            size="smaller"
-            color="skyblue"
-            text="확인"
-            onClick={(e) => {
-              e.preventDefault();
-              setOnModal(false);
-            }}
-          />
-          <StorybookButton
-            size="smaller"
-            color="skyblue"
-            text="취소"
-            onClick={(e) => {
-              e.preventDefault();
-              setOnModal(false);
-            }}
-          />
-        </BtnGroup>
-      </ModalView>
-    </ModalBackDrop>
+    <>
+      <StorybookButton
+        text={"모달버튼"}
+        size={"big"}
+        color={"skyblue"}
+        onClick={handleModal}
+      />
+      {onModal ? (
+        <ModalBackDrop>
+          <ModalView size={size}>
+            <CheckMessage>{text}</CheckMessage>
+            <BtnGroup>
+              <StorybookButton
+                size="smaller"
+                color="skyblue"
+                text="확인"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setOnModal(false);
+                }}
+              />
+              <StorybookButton
+                size="smaller"
+                color="skyblue"
+                text="취소"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setOnModal(false);
+                }}
+              />
+            </BtnGroup>
+          </ModalView>
+        </ModalBackDrop>
+      ) : null}
+    </>
   );
 }

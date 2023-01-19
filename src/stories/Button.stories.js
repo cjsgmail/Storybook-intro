@@ -7,6 +7,7 @@ export default {
     text: { control: "text" },
     color: { control: "color" },
     size: { control: { type: "radio", options: ["big", "small", "smaller"] } },
+    onClick: { control: "" },
   },
 };
 
@@ -18,6 +19,22 @@ BigRedButton.args = {
   text: "빨간버튼",
   color: "red",
   size: "big",
+};
+
+export const SmallRedButton = Template.bind({});
+
+SmallRedButton.args = {
+  text: "빨간버튼",
+  color: "red",
+  size: "small",
+};
+
+export const SmallerRedButton = Template.bind({});
+
+SmallerRedButton.args = {
+  text: "빨간버튼",
+  color: "red",
+  size: "smaller",
 };
 
 export const StorybookButton = (args) => <Button {...args}></Button>;
