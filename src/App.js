@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { StorybookButton } from "./stories/Button.stories";
+import { StorybookDropdown } from "./stories/Dropdown.stories";
 import { StorybookModal } from "./stories/Modal.stories";
 import { StorybookTitle } from "./stories/Title.stories";
 
@@ -20,6 +21,12 @@ function App() {
         <ComponentContainer>
           <ComponentTitle>Modal</ComponentTitle>
           <StorybookModal text={"확인하겠습니까?"} size={"big"} />
+        </ComponentContainer>
+        <ComponentContainer>
+          <ComponentTitle>DropDown</ComponentTitle>
+          <StorybookDropdown color={"white"} size={"smaller"} />
+          <StorybookDropdown color={"white"} size={"small"} />
+          <StorybookDropdown color={"white"} size={"big"} />
         </ComponentContainer>
       </Container>
     </>
